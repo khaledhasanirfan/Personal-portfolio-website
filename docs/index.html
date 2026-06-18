@@ -9,6 +9,7 @@
   <meta property="og:type" content="website" />
   <meta property="og:title" content="Khaled Hasan | Researcher in Human-Centered Trustworthy Agentic AI" />
   <meta property="og:description" content="Lecturer, CSE, MIST. I build AI that people can understand, question, and trust." />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🧠</text></svg>" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
@@ -66,7 +67,15 @@
     .hero-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(124,108,255,.06) 1px,transparent 1px),linear-gradient(90deg,rgba(124,108,255,.06) 1px,transparent 1px);background-size:46px 46px;mask-image:radial-gradient(70% 60% at 50% 35%,#000 30%,transparent 80%);-webkit-mask-image:radial-gradient(70% 60% at 50% 35%,#000 30%,transparent 80%)}
     .hero-orb{position:absolute;width:480px;height:480px;right:-120px;top:10%;border-radius:50%;background:radial-gradient(circle,rgba(124,108,255,.28),transparent 65%);filter:blur(20px);animation:float 9s ease-in-out infinite}
     @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-28px)}}
-    .hero-inner{position:relative;max-width:860px}
+    .hero-inner{position:relative;display:grid;grid-template-columns:1fr auto;gap:56px;align-items:center}
+    .hero-text{max-width:680px}
+    .hero-domains{margin:0 0 32px}
+    .hero-domains p{margin:0 0 8px;color:var(--muted);font-size:1rem;line-height:1.6}
+    .domain-label{display:inline-block;font-family:var(--font-mono);font-size:.72rem;text-transform:uppercase;letter-spacing:.08em;color:var(--teal);border:1px solid var(--border);border-radius:6px;padding:2px 8px;margin-right:10px}
+    .hero-photo{flex-shrink:0}
+    .hero-photo img{width:320px;max-width:38vw;height:auto;aspect-ratio:4/5;object-fit:cover;border-radius:18px;border:1px solid var(--border);box-shadow:0 24px 60px -20px rgba(0,0,0,.7);background:linear-gradient(135deg,var(--indigo),var(--teal));padding:4px}
+    .hero-photo.no-img{width:320px;max-width:38vw;aspect-ratio:4/5;border-radius:18px;border:1px dashed var(--border);display:grid;place-items:center;color:var(--faint);font-family:var(--font-mono);font-size:.8rem;text-align:center}
+    .hero-photo.no-img::after{content:'Add profile.jpg'}
     .hero-eyebrow{display:inline-flex;align-items:center;gap:10px;font-family:var(--font-mono);font-size:13px;color:var(--teal);border:1px solid var(--border);background:rgba(52,214,196,.05);padding:7px 14px;border-radius:999px;margin-bottom:26px}
     .hero-eyebrow .dot{width:7px;height:7px;border-radius:50%;background:var(--teal);box-shadow:0 0 0 0 rgba(52,214,196,.6);animation:pulse 2.4s infinite}
     @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(52,214,196,.5)}70%{box-shadow:0 0 0 8px rgba(52,214,196,0)}100%{box-shadow:0 0 0 0 rgba(52,214,196,0)}}
@@ -92,6 +101,23 @@
     .fact-text{font-size:.9rem;color:var(--muted)}
     .about-roles{list-style:none;display:flex;flex-wrap:wrap;gap:12px;padding:0;margin:36px 0 0}
     .about-roles li{font-size:.92rem;color:var(--muted);border:1px solid var(--border);border-radius:999px;padding:8px 16px}
+    .about-bio{max-width:74ch;margin-bottom:44px}
+    .about-bio p{margin:0 0 18px;color:var(--muted);font-size:1.08rem}
+    .about-bio p:first-child{color:var(--text)}
+    .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px}
+    .about-sub{font-size:1.05rem;margin:0 0 16px;color:var(--text)}
+    .about-grid .about-sub:not(:first-child){margin-top:32px}
+    .course-bullets,.email-list{list-style:none;margin:0;padding:0}
+    .course-bullets li{position:relative;padding:9px 0 9px 22px;color:var(--text);border-bottom:1px solid var(--border)}
+    .course-bullets li::before{content:'';position:absolute;left:0;top:18px;width:8px;height:8px;border:1.5px solid var(--indigo);border-radius:2px;transform:rotate(45deg)}
+    .course-bullets .course-code{font-family:var(--font-mono);font-size:.82rem;color:var(--indigo-soft);margin-right:10px}
+    .collab-note{color:var(--muted);margin:0 0 12px}
+    .email-list li{padding:7px 0}
+    .email-list a{font-family:var(--font-mono);font-size:.92rem;color:var(--teal)}
+    .email-list a:hover{color:var(--indigo-soft)}
+    .teaching-stats{display:flex;gap:32px;margin-top:8px}
+    .teaching-stats .fact-num{display:block;font-family:var(--font-display);font-size:1.9rem;font-weight:700;color:var(--indigo-soft)}
+    .teaching-stats .fact-text{font-size:.9rem;color:var(--muted)}
 
     /* Research */
     .research-identity{font-family:var(--font-display);font-size:clamp(1.6rem,4.5vw,2.8rem);font-weight:700;letter-spacing:-.03em;background:linear-gradient(120deg,var(--indigo-soft),var(--teal));-webkit-background-clip:text;background-clip:text;color:transparent;max-width:18ch;margin-bottom:18px}
@@ -182,8 +208,11 @@
       .nav-links.open{transform:translateY(0)}
       .nav-links a{padding:14px 0;border-bottom:1px solid var(--border)}
       .nav-toggle{display:flex}
-      .about-layout,.teaching-layout,.contact-layout{grid-template-columns:1fr;gap:32px}
+      .about-layout,.teaching-layout,.contact-layout,.about-grid{grid-template-columns:1fr;gap:32px}
       .section{padding:72px 0}
+      .hero-inner{grid-template-columns:1fr;gap:36px}
+      .hero-photo{order:-1}
+      .hero-photo img,.hero-photo.no-img{width:200px;max-width:60vw}
     }
     @media(max-width:460px){
       body{font-size:16px}
@@ -242,14 +271,22 @@
       <div class="hero-grid" aria-hidden="true"></div>
       <div class="hero-orb" aria-hidden="true"></div>
       <div class="container hero-inner">
-        <p class="hero-eyebrow reveal"><span class="dot"></span>Lecturer, CSE, MIST since April 2024</p>
-        <h1 class="hero-title reveal">Khaled Hasan</h1>
-        <p class="hero-role reveal">Lecturer, CSE, MIST <span class="sep">/</span> Researcher in Human-Centered Trustworthy Agentic AI</p>
-        <p class="hero-tagline reveal">I build AI that people can understand, question, and trust. My work sits where machine learning meets the humans who actually use it.</p>
-        <div class="hero-cta reveal">
-          <a class="btn btn-primary" href="#research">View Research</a>
-          <a class="btn btn-ghost" href="cv.pdf" download>Download CV</a>
-          <a class="btn btn-ghost" href="#contact">Contact Me</a>
+        <div class="hero-text">
+          <h1 class="hero-title reveal">Khaled Hasan</h1>
+          <p class="hero-role reveal">Lecturer, Department of CSE, Military Institute of Science and Technology (MIST), Dhaka</p>
+          <div class="hero-domains reveal">
+            <p><span class="domain-label">Primary</span> Machine Learning, Deep Learning, LLMs, Trustworthy AI, Agentic AI</p>
+            <p><span class="domain-label">Secondary</span> Explainable AI (XAI), Secure AI, Computer Vision, HCI / HAI</p>
+          </div>
+          <div class="hero-cta reveal">
+            <a class="btn btn-primary" href="#research">View Research</a>
+            <a class="btn btn-ghost" href="cv.pdf" download>Download CV</a>
+            <a class="btn btn-ghost" href="#contact">Contact Me</a>
+          </div>
+        </div>
+        <div class="hero-photo reveal">
+          <img src="profile.jpg" alt="Khaled Hasan" width="360" height="450"
+               onerror="this.closest('.hero-photo').classList.add('no-img')" />
         </div>
       </div>
     </section>
@@ -260,24 +297,36 @@
           <span class="section-index">01</span>
           <h2>About</h2>
         </header>
-        <div class="about-layout">
-          <div class="about-lead reveal">
-            <p>I teach and research in the Department of CSE at the Military Institute of Science and Technology in Dhaka. I joined as a Lecturer in April 2024.</p>
-            <p>I finished my B.Sc. in CSE at MIST with a CGPA of 3.83 out of 4.00, ranked 4th out of 88. I scored 7.5 on IELTS.</p>
-            <p>I am applying for a fully funded PhD abroad, targeting Fall 2026 or Spring to Fall 2027. My long-term goal is to become a global AI researcher, an academic leader, and someone who ships real-world AI.</p>
-          </div>
-          <ul class="about-facts reveal">
-            <li><span class="fact-num">16+</span><span class="fact-text">courses taught at MIST</span></li>
-            <li><span class="fact-num">220+</span><span class="fact-text">students guided</span></li>
-            <li><span class="fact-num">3.83</span><span class="fact-text">CGPA, ranked 4th of 88</span></li>
-            <li><span class="fact-num">7.5</span><span class="fact-text">IELTS band score</span></li>
-          </ul>
+        <div class="about-bio reveal">
+          <p>Hello! I'm Khaled, a Lecturer in the Department of Computer Science and Engineering at the Military Institute of Science and Technology (MIST), Dhaka. I am broadly interested in building AI that people can understand, question, and trust, an area I think of as Human-Centered Trustworthy Agentic AI.</p>
+          <p>I work on machine learning, deep learning, large language models, and agentic systems, with a focus on making them explainable, secure, and useful to the people who rely on them. My work also reaches into human-computer interaction, computer vision, and real-world software, from peer-reviewed papers to systems used by hundreds of people.</p>
+          <p>I advise the MIST Mars Rover Society and moderate the MIST Computer Club, and I have mentored robotics teams at other universities. I earned my B.Sc. in CSE from MIST, where I now teach.</p>
         </div>
-        <ul class="about-roles reveal">
-          <li>Advisor, MIST Mars Rover Society</li>
-          <li>Moderator, MIST Computer Club</li>
-          <li>Mentor for robotics teams at other universities</li>
-        </ul>
+        <div class="about-grid">
+          <div class="reveal">
+            <h3 class="about-sub">Courses I have taught</h3>
+            <ul class="course-bullets">
+              <li><span class="course-code">CSE-105</span>Structured Programming</li>
+              <li><span class="course-code">CSE-220</span>Object Oriented Programming</li>
+              <li><span class="course-code">CSE-310</span>Computer Networking</li>
+              <li><span class="course-code">CSE-213</span>Computer Architecture</li>
+              <li><span class="course-code">CSE-DS</span>Data Structures</li>
+            </ul>
+            <ul class="about-roles">
+              <li>Advisor, MIST Mars Rover Society</li>
+              <li>Moderator, MIST Computer Club</li>
+              <li>Mentor, robotics teams at other universities</li>
+            </ul>
+          </div>
+          <div class="reveal">
+            <h3 class="about-sub">Open to collaboration</h3>
+            <p class="collab-note">I welcome research collaboration. If you would like to work together or just chat about research, reach me at:</p>
+            <ul class="email-list">
+              <li><a href="mailto:khaled@cse.mist.ac.bd">khaled@cse.mist.ac.bd</a></li>
+              <li><a href="mailto:khaledirfan7@gmail.com">khaledirfan7@gmail.com</a></li>
+            </ul>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -409,13 +458,10 @@
         <div class="teaching-layout">
           <div class="reveal">
             <p class="teaching-lead">I have taught 16+ courses at MIST and guided 220+ students across them.</p>
-            <ul class="course-list">
-              <li><span class="course-code">CSE-105</span>Structured Programming</li>
-              <li><span class="course-code">CSE-220</span>Object Oriented Programming</li>
-              <li><span class="course-code">CSE-310</span>Computer Networking</li>
-              <li><span class="course-code">CSE-213</span>Computer Architecture</li>
-              <li><span class="course-code">CSE-DS</span>Data Structures</li>
-            </ul>
+            <div class="teaching-stats">
+              <div><span class="fact-num">16+</span><span class="fact-text">courses taught</span></div>
+              <div><span class="fact-num">220+</span><span class="fact-text">students guided</span></div>
+            </div>
           </div>
           <div class="reveal">
             <h3 class="teaching-sub">Beyond the classroom</h3>
