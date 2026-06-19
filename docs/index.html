@@ -14,13 +14,13 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
   <style>
-    :root{--bg:#0a0e19;--bg-2:#0e1426;--surface:#121a30;--surface-2:#16203a;--border:#233052;--text:#e8ecf6;--muted:#95a0bd;--faint:#6b7798;--indigo:#7c6cff;--indigo-soft:#9a8dff;--teal:#34d6c4;--amber:#f5b14c;--radius:14px;--maxw:1080px;--ease:cubic-bezier(0.22,1,0.36,1);--font-display:'Sora',system-ui,sans-serif;--font-body:'Inter',system-ui,sans-serif;--font-mono:'JetBrains Mono',ui-monospace,monospace}
+    :root{--bg:#0a0e19;--bg-2:#0e1426;--surface:#121a30;--surface-2:#16203a;--border:#233052;--text:#e8ecf6;--muted:#95a0bd;--faint:#6b7798;--indigo:#7c6cff;--indigo-soft:#9a8dff;--teal:#34d6c4;--amber:#f5b14c;--radius:14px;--maxw:1200px;--ease:cubic-bezier(0.22,1,0.36,1);--font-display:'Sora',system-ui,sans-serif;--font-body:'Inter',system-ui,sans-serif;--font-mono:'JetBrains Mono',ui-monospace,monospace}
     *,*::before,*::after{box-sizing:border-box}
     html{scroll-behavior:smooth;scroll-padding-top:84px}
-    body{margin:0;background:var(--bg);color:var(--text);font-family:var(--font-body);font-size:17px;line-height:1.7;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+    body{margin:0;background:var(--bg);color:var(--text);font-family:var(--font-body);font-size:17px;line-height:1.7;-webkit-font-smoothing:antialiased;overflow-x:hidden;text-align:justify;text-justify:inter-word}
     body::before{content:'';position:fixed;inset:0;z-index:-2;background:radial-gradient(60vw 60vw at 80% -10%,rgba(124,108,255,.14),transparent 60%),radial-gradient(50vw 50vw at -10% 30%,rgba(52,214,196,.08),transparent 55%);pointer-events:none}
     a{color:inherit;text-decoration:none}
-    h1,h2,h3{font-family:var(--font-display);font-weight:700;line-height:1.15;letter-spacing:-.02em;margin:0}
+    h1,h2,h3{font-family:var(--font-display);font-weight:700;line-height:1.15;letter-spacing:-.02em;margin:0;text-align:left}
     .container{width:100%;max-width:var(--maxw);margin:0 auto;padding:0 28px}
     .sep{color:var(--faint);margin:0 .4em}
     .skip-link{position:absolute;left:-999px;top:0;z-index:100;background:var(--indigo);color:#fff;padding:10px 16px;border-radius:0 0 8px 0}
@@ -107,8 +107,19 @@
     .email-list a{font-family:var(--font-mono);font-size:.92rem;color:var(--teal)}
     .email-list a:hover{color:var(--indigo-soft)}
 
+    /* Experience */
+    .xp-list{display:flex;flex-direction:column;gap:18px;margin-bottom:18px}
+    .xp-card{display:flex;align-items:center;justify-content:space-between;gap:26px;background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:26px 30px;transition:transform .25s var(--ease),border-color .25s var(--ease),background .25s var(--ease)}
+    .xp-card:hover{transform:translateY(-3px);border-color:var(--indigo);background:var(--surface-2)}
+    .xp-body{min-width:0;flex:1}
+    .xp-role{display:block;font-family:var(--font-display);font-weight:700;font-size:1.18rem;color:var(--text);letter-spacing:-.01em}
+    .xp-org{display:block;color:var(--indigo-soft);font-size:1rem;margin-top:4px}
+    .xp-meta{display:inline-block;font-family:var(--font-mono);font-size:.8rem;color:var(--teal);margin-top:10px;background:rgba(52,214,196,.1);border:1px solid rgba(52,214,196,.25);border-radius:6px;padding:3px 10px}
+    .xp-logo{flex-shrink:0;width:84px;height:84px;object-fit:contain;border-radius:16px;background:#fff;padding:10px;box-shadow:0 10px 26px -14px rgba(0,0,0,.7)}
+    .xp-logo-fallback{flex-shrink:0;width:84px;height:84px;display:grid;place-items:center;border-radius:16px;font-family:var(--font-display);font-weight:700;font-size:1.4rem;color:#0a0e19;background:linear-gradient(135deg,var(--indigo),var(--teal))}
+
     /* Research */
-    .research-identity{font-family:var(--font-display);font-size:clamp(1.6rem,4.5vw,2.6rem);font-weight:700;letter-spacing:-.03em;background:linear-gradient(120deg,var(--indigo-soft),var(--teal));-webkit-background-clip:text;background-clip:text;color:transparent;max-width:20ch;margin-bottom:18px}
+    .research-identity{font-family:var(--font-display);font-size:clamp(1.45rem,4vw,2.5rem);font-weight:700;letter-spacing:-.03em;background:linear-gradient(120deg,var(--indigo-soft),var(--teal));-webkit-background-clip:text;background-clip:text;color:transparent;max-width:none;white-space:nowrap;margin-bottom:18px}
     .research-note{color:var(--muted);max-width:64ch;margin-bottom:32px}
     .tag-grid{list-style:none;padding:0;margin:0;display:flex;flex-wrap:wrap;gap:12px}
     .tag-grid li{font-family:var(--font-mono);font-size:.88rem;color:var(--text);background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:11px 16px;transition:transform .2s var(--ease),border-color .2s var(--ease),color .2s var(--ease)}
@@ -118,15 +129,17 @@
     .ongoing-list li{padding:16px 0;border-top:1px solid var(--border);color:var(--muted);font-size:.98rem}
     .ongoing-list li b{color:var(--text);font-weight:600}
     .skills{margin-top:18px}
-    .skill-row{display:flex;gap:18px;padding:14px 0;border-top:1px solid var(--border);flex-wrap:wrap}
-    .skill-cat{font-family:var(--font-mono);font-size:.8rem;color:var(--teal);min-width:160px}
-    .skill-tags{display:flex;flex-wrap:wrap;gap:8px}
+    .skill-row{display:flex;gap:18px;padding:14px 0;border-top:1px solid var(--border);flex-wrap:nowrap;align-items:flex-start}
+    .skill-cat{font-family:var(--font-mono);font-size:.8rem;color:var(--teal);min-width:160px;flex-shrink:0;padding-top:4px}
+    .skill-tags{display:flex;flex-wrap:wrap;gap:8px;flex:1}
     .skill-tags span{font-size:.84rem;color:var(--text);background:var(--surface);border:1px solid var(--border);border-radius:7px;padding:4px 10px}
 
     /* Publications */
     .pub-list{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:16px}
-    .pub-item{position:relative;background:var(--surface);border:1px solid var(--border);border-left:3px solid var(--indigo);border-radius:var(--radius);padding:22px 26px;transition:transform .25s var(--ease),border-color .25s var(--ease),background .25s var(--ease)}
+    .pub-item{display:block;position:relative;background:var(--surface);border:1px solid var(--border);border-left:3px solid var(--indigo);border-radius:var(--radius);padding:22px 26px;transition:transform .25s var(--ease),border-color .25s var(--ease),background .25s var(--ease)}
+    .pub-item.linked{cursor:pointer}
     .pub-item:hover{transform:translateX(4px);background:var(--surface-2);border-left-color:var(--teal)}
+    .pub-link{position:absolute;inset:0;z-index:1;border-radius:var(--radius)}
     .pub-top{display:flex;justify-content:space-between;gap:16px;align-items:flex-start;flex-wrap:wrap}
     .pub-title{font-family:var(--font-display);font-weight:600;font-size:1.06rem;color:var(--text);flex:1;min-width:240px}
     .pub-status{font-family:var(--font-mono);font-size:.72rem;text-transform:uppercase;letter-spacing:.06em;padding:4px 10px;border-radius:6px;white-space:nowrap}
@@ -136,7 +149,7 @@
     .pub-meta{display:flex;align-items:center;flex-wrap:wrap;gap:10px;margin-top:12px;color:var(--muted);font-size:.92rem}
     .pub-venue{color:var(--text);font-weight:500}
     .pub-doi{font-family:var(--font-mono);font-size:.8rem;color:var(--teal);border:1px solid var(--border);border-radius:6px;padding:2px 8px}
-    .pub-doi:hover{border-color:var(--teal)}
+    .pub-item:hover .pub-doi{border-color:var(--teal)}
     .pub-award{font-family:var(--font-mono);font-size:.76rem;color:var(--amber);border:1px solid rgba(245,177,76,.4);border-radius:6px;padding:2px 8px}
 
     /* Projects */
@@ -179,11 +192,14 @@
 
     /* Honors */
     .honors-list{list-style:none;margin:0;padding:0}
-    .honors-list li{display:flex;gap:24px;padding:18px 0;border-top:1px solid var(--border);align-items:baseline}
+    .honors-list li{position:relative;display:flex;gap:24px;padding:18px 4px;border-top:1px solid var(--border);align-items:flex-start;border-radius:8px}
     .honors-list li:last-child{border-bottom:1px solid var(--border)}
-    .honor-date{font-family:var(--font-mono);font-size:.8rem;color:var(--teal);min-width:96px;flex-shrink:0}
-    .honor-text{color:var(--muted)}
+    .honors-list li.linked{cursor:pointer;transition:background .2s var(--ease)}
+    .honors-list li.linked:hover{background:var(--surface)}
+    .honor-date{font-family:var(--font-mono);font-size:.8rem;color:var(--teal);min-width:104px;flex-shrink:0;padding-top:4px}
+    .honor-text{color:var(--muted);text-align:left;flex:1}
     .honor-text b{color:var(--text);font-weight:600}
+    .honor-link{position:absolute;inset:0;z-index:1;border-radius:8px}
 
     /* Contact */
     .contact-layout{display:grid;grid-template-columns:1fr 1.1fr;gap:56px}
@@ -227,7 +243,10 @@
       .hero-inner{grid-template-columns:1fr;gap:36px}
       .hero-photo{order:-1}
       .hero-photo img,.hero-photo.no-img{width:240px;max-width:70vw}
-      .skill-cat{min-width:0;width:100%}
+      .skill-cat{min-width:120px}
+      .research-identity{white-space:normal}
+      .xp-card{flex-direction:column;align-items:flex-start;gap:18px;padding:22px}
+      .xp-logo,.xp-logo-fallback{width:64px;height:64px;order:-1}
     }
     @media(max-width:460px){
       body{font-size:16px}
@@ -251,12 +270,24 @@
 
   <header class="nav" id="nav">
     <div class="nav-inner container">
-      <a class="brand" href="#hero" aria-label="Khaled Hasan, home">
-        <span class="brand-mark">KH</span>
-        <span class="brand-name">Khaled Hasan</span>
+      <a class="brand" href="#hero" aria-label="Personal Portfolio, home">
+        <span class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 32 32" width="20" height="20">
+            <g stroke="#0a0e19" stroke-width="2.2" fill="#0a0e19" stroke-linejoin="round">
+              <line x1="8" y1="23" x2="16" y2="8"/>
+              <line x1="16" y1="8" x2="24" y2="21"/>
+              <line x1="8" y1="23" x2="24" y2="21"/>
+              <circle cx="8" cy="23" r="2.6"/>
+              <circle cx="16" cy="8" r="2.6"/>
+              <circle cx="24" cy="21" r="2.6"/>
+            </g>
+          </svg>
+        </span>
+        <span class="brand-name">Personal Portfolio</span>
       </a>
       <nav class="nav-links" aria-label="Primary">
         <a href="#about">About</a>
+        <a href="#experience">Experience</a>
         <a href="#research">Research</a>
         <a href="#publications">Publications</a>
         <a href="#projects">Projects</a>
@@ -275,13 +306,14 @@
     <ul id="spineList">
       <li data-target="hero"><span class="spine-num">00</span><span class="spine-label">Intro</span></li>
       <li data-target="about"><span class="spine-num">01</span><span class="spine-label">About</span></li>
-      <li data-target="research"><span class="spine-num">02</span><span class="spine-label">Research</span></li>
-      <li data-target="publications"><span class="spine-num">03</span><span class="spine-label">Publications</span></li>
-      <li data-target="projects"><span class="spine-num">04</span><span class="spine-label">Projects</span></li>
-      <li data-target="education"><span class="spine-num">05</span><span class="spine-label">Education</span></li>
-      <li data-target="teaching"><span class="spine-num">06</span><span class="spine-label">Teaching</span></li>
-      <li data-target="honors"><span class="spine-num">07</span><span class="spine-label">Honors</span></li>
-      <li data-target="contact"><span class="spine-num">08</span><span class="spine-label">Contact</span></li>
+      <li data-target="experience"><span class="spine-num">02</span><span class="spine-label">Experience</span></li>
+      <li data-target="research"><span class="spine-num">03</span><span class="spine-label">Research</span></li>
+      <li data-target="publications"><span class="spine-num">04</span><span class="spine-label">Publications</span></li>
+      <li data-target="projects"><span class="spine-num">05</span><span class="spine-label">Projects</span></li>
+      <li data-target="education"><span class="spine-num">06</span><span class="spine-label">Education</span></li>
+      <li data-target="teaching"><span class="spine-num">07</span><span class="spine-label">Teaching</span></li>
+      <li data-target="honors"><span class="spine-num">08</span><span class="spine-label">Honors</span></li>
+      <li data-target="contact"><span class="spine-num">09</span><span class="spine-label">Contact</span></li>
     </ul>
   </aside>
 
@@ -307,7 +339,7 @@
           <p class="hero-intro reveal">I am a Computer Science graduate and a Lecturer in the Department of CSE at MIST. Right now I work on trustworthy and explainable AI and human-AI interaction. My goal is to build AI systems that are reliable, interpretable, and genuinely useful to people.</p>
           <div class="hero-cta reveal">
             <a class="btn btn-primary" href="#research">View Research</a>
-            <a class="btn btn-ghost" href="cv.pdf" download>Download CV</a>
+            <a class="btn btn-ghost" href="Khaled_Hasan_Irfan_CV_Version_2_0.pdf" download="Khaled_Hasan_Irfan_CV.pdf">Download CV</a>
             <a class="btn btn-ghost" href="#contact">Contact Me</a>
           </div>
         </div>
@@ -328,26 +360,6 @@
           <p>Hello! I'm Khaled, a Computer Science lecturer and researcher developing human-centered, trustworthy AI. I pair machine learning with large language and vision-language models and explainable AI, and I evaluate these systems with rigorous human-centered methods.</p>
           <p>The aim is to make real-world decision-support and interactive systems more reliable, interpretable, and usable. My interests run across adaptive user interfaces, AI for health, and edge intelligence. I finished my B.Sc. in CSE at MIST and joined as a Lecturer in April 2024, where I teach and supervise undergraduate research and capstone theses, several of which have led to peer-reviewed publications.</p>
         </div>
-        <div class="about-grid">
-          <div class="reveal">
-            <h3 class="about-sub">Experience</h3>
-            <ul class="exp-list">
-              <li><span class="exp-role">Lecturer, Department of CSE, MIST</span><span class="exp-meta">Apr 2024 - Present</span></li>
-              <li><span class="exp-role">Full-Stack Developer, MIST CSE Archive</span><span class="exp-meta">May 2022 - Dec 2023</span></li>
-              <li><span class="exp-role">Industrial Trainee, IT Department, Grameenphone Ltd.</span><span class="exp-meta">Jan 2023 - Feb 2023</span></li>
-            </ul>
-          </div>
-          <div class="reveal">
-            <h3 class="about-sub">Leadership &amp; Service</h3>
-            <ul class="exp-list">
-              <li><span class="exp-role">Project Coordinator, Mobile &amp; App Dev Project for Bangladesh Army</span><span class="exp-meta">May 2025 - Present</span></li>
-              <li><span class="exp-role">Moderator, MIST Cyber Security Club</span><span class="exp-meta">Jul 2024 - Present</span></li>
-              <li><span class="exp-role">General Secretary, MIST Cyber Security Club</span><span class="exp-meta">Former</span></li>
-              <li><span class="exp-role">Executive Director, MIST Computer Club</span><span class="exp-meta">Feb 2023 - Mar 2024</span></li>
-              <li><span class="exp-role">Co-Lead, Software &amp; Communication Team, MIST Mars Rover Society (Mongol Barota)</span><span class="exp-meta">Mar 2020 - Oct 2023</span></li>
-            </ul>
-          </div>
-        </div>
         <div class="collab reveal">
           <h3>Open to collaboration</h3>
           <p>I welcome research collaboration. If you would like to work together or just chat about research, reach me at:</p>
@@ -359,10 +371,89 @@
       </div>
     </section>
 
-    <section class="section" id="research">
+    <section class="section" id="experience">
       <div class="container">
         <header class="section-head reveal">
           <span class="section-index">02</span>
+          <h2>Experience</h2>
+        </header>
+        <div class="xp-list">
+          <article class="xp-card reveal">
+            <div class="xp-body">
+              <span class="xp-role">Lecturer</span>
+              <span class="xp-org">Department of CSE, Military Institute of Science and Technology (MIST)</span>
+              <span class="xp-meta">Apr 2024 - Present</span>
+            </div>
+            <img class="xp-logo" src="mist_logo.png" alt="MIST logo" onerror="this.outerHTML='<span class=&quot;xp-logo-fallback&quot;>MIST</span>'" />
+          </article>
+          <article class="xp-card reveal">
+            <div class="xp-body">
+              <span class="xp-role">Full-Stack Developer</span>
+              <span class="xp-org">MIST CSE Archive</span>
+              <span class="xp-meta">May 2022 - Dec 2023</span>
+            </div>
+            <img class="xp-logo" src="mist_logo.png" alt="MIST logo" onerror="this.outerHTML='<span class=&quot;xp-logo-fallback&quot;>MIST</span>'" />
+          </article>
+          <article class="xp-card reveal">
+            <div class="xp-body">
+              <span class="xp-role">Industrial Trainee</span>
+              <span class="xp-org">IT Department, Grameenphone Ltd.</span>
+              <span class="xp-meta">Jan 2023 - Feb 2023</span>
+            </div>
+            <img class="xp-logo" src="gp_logo.png" alt="Grameenphone logo" onerror="this.outerHTML='<span class=&quot;xp-logo-fallback&quot;>GP</span>'" />
+          </article>
+        </div>
+
+        <h3 class="sub-head reveal">Leadership &amp; Service</h3>
+        <div class="xp-list">
+          <article class="xp-card reveal">
+            <div class="xp-body">
+              <span class="xp-role">Project Coordinator</span>
+              <span class="xp-org">Mobile &amp; App Development Project for Bangladesh Army</span>
+              <span class="xp-meta">May 2025 - Present</span>
+            </div>
+            <span class="xp-logo-fallback">BA</span>
+          </article>
+          <article class="xp-card reveal">
+            <div class="xp-body">
+              <span class="xp-role">Moderator</span>
+              <span class="xp-org">MIST Cyber Security Club</span>
+              <span class="xp-meta">Jul 2024 - Present</span>
+            </div>
+            <img class="xp-logo" src="mist_logo.png" alt="MIST logo" onerror="this.outerHTML='<span class=&quot;xp-logo-fallback&quot;>MIST</span>'" />
+          </article>
+          <article class="xp-card reveal">
+            <div class="xp-body">
+              <span class="xp-role">General Secretary</span>
+              <span class="xp-org">MIST Cyber Security Club</span>
+              <span class="xp-meta">Former</span>
+            </div>
+            <img class="xp-logo" src="mist_logo.png" alt="MIST logo" onerror="this.outerHTML='<span class=&quot;xp-logo-fallback&quot;>MIST</span>'" />
+          </article>
+          <article class="xp-card reveal">
+            <div class="xp-body">
+              <span class="xp-role">Executive Director</span>
+              <span class="xp-org">MIST Computer Club</span>
+              <span class="xp-meta">Feb 2023 - Mar 2024</span>
+            </div>
+            <img class="xp-logo" src="mist_logo.png" alt="MIST logo" onerror="this.outerHTML='<span class=&quot;xp-logo-fallback&quot;>MIST</span>'" />
+          </article>
+          <article class="xp-card reveal">
+            <div class="xp-body">
+              <span class="xp-role">Co-Lead, Software &amp; Communication Team</span>
+              <span class="xp-org">MIST Mars Rover Society (Mongol Barota)</span>
+              <span class="xp-meta">Mar 2020 - Oct 2023</span>
+            </div>
+            <img class="xp-logo" src="mongol_barota_logo.png" alt="Mongol Barota logo" onerror="this.outerHTML='<span class=&quot;xp-logo-fallback&quot;>MB</span>'" />
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="research">
+      <div class="container">
+        <header class="section-head reveal">
+          <span class="section-index">03</span>
           <h2>Research</h2>
         </header>
         <p class="research-identity reveal">Human-Centered, Trustworthy AI</p>
@@ -399,11 +490,12 @@
     <section class="section" id="publications">
       <div class="container">
         <header class="section-head reveal">
-          <span class="section-index">03</span>
+          <span class="section-index">04</span>
           <h2>Publications</h2>
         </header>
         <ol class="pub-list">
-          <li class="pub-item reveal">
+          <li class="pub-item linked reveal">
+            <a class="pub-link" href="https://doi.org/10.1016/j.array.2026.100901" target="_blank" rel="noopener" aria-label="Open paper: Adaptive User Interface for Mobile Banking Apps"></a>
             <div class="pub-top">
               <span class="pub-title">Adaptive User Interface for Mobile Banking Apps: Enhancing UX through Machine Learning</span>
               <span class="pub-status published">Published</span>
@@ -411,30 +503,33 @@
             <div class="pub-meta">
               <span class="pub-venue">Array (Elsevier), 2026</span>
               <span class="pub-award">Q1, IF 4.5</span>
-              <a class="pub-doi" href="https://doi.org/10.1016/j.array.2026.100901" target="_blank" rel="noopener">DOI 10.1016/j.array.2026.100901</a>
+              <span class="pub-doi">DOI 10.1016/j.array.2026.100901</span>
             </div>
           </li>
-          <li class="pub-item reveal">
+          <li class="pub-item linked reveal">
+            <a class="pub-link" href="https://doi.org/10.1145/3723178.3723192" target="_blank" rel="noopener" aria-label="Open paper: Light Canvas"></a>
             <div class="pub-top">
               <span class="pub-title">Light Canvas: An IoT-Based Interactive Virtual Drawing System for Enhancing Educational Engagement</span>
               <span class="pub-status published">Published</span>
             </div>
             <div class="pub-meta">
               <span class="pub-venue">ICCA 2024 (ACM)</span>
-              <a class="pub-doi" href="https://doi.org/10.1145/3723178.3723192" target="_blank" rel="noopener">DOI 10.1145/3723178.3723192</a>
+              <span class="pub-doi">DOI 10.1145/3723178.3723192</span>
             </div>
           </li>
-          <li class="pub-item reveal">
+          <li class="pub-item linked reveal">
+            <a class="pub-link" href="https://doi.org/10.1109/ICCIT68739.2025.11491820" target="_blank" rel="noopener" aria-label="Open paper: From Keywords to Context"></a>
             <div class="pub-top">
               <span class="pub-title">From Keywords to Context: SBERT vs Keyword-Based Machine Learning for Job Recommendation</span>
               <span class="pub-status published">Published</span>
             </div>
             <div class="pub-meta">
               <span class="pub-venue">IEEE ICCIT, 2025</span>
-              <a class="pub-doi" href="https://doi.org/10.1109/ICCIT68739.2025.11491820" target="_blank" rel="noopener">DOI 10.1109/ICCIT68739.2025.11491820</a>
+              <span class="pub-doi">DOI 10.1109/ICCIT68739.2025.11491820</span>
             </div>
           </li>
-          <li class="pub-item reveal">
+          <li class="pub-item linked reveal">
+            <a class="pub-link" href="https://doi.org/10.1109/ICCIT68739.2025.11491675" target="_blank" rel="noopener" aria-label="Open paper: Assessing Usability of Agricultural Mobile Applications"></a>
             <div class="pub-top">
               <span class="pub-title">Assessing Usability of Agricultural Mobile Applications for Illiterate and Semi-Literate Farmers in Bangladesh</span>
               <span class="pub-status published">Published</span>
@@ -442,7 +537,7 @@
             <div class="pub-meta">
               <span class="pub-venue">IEEE ICCIT, 2025</span>
               <span class="pub-award">Top 2% Paper Award</span>
-              <a class="pub-doi" href="https://doi.org/10.1109/ICCIT68739.2025.11491675" target="_blank" rel="noopener">DOI 10.1109/ICCIT68739.2025.11491675</a>
+              <span class="pub-doi">DOI 10.1109/ICCIT68739.2025.11491675</span>
             </div>
           </li>
           <li class="pub-item reveal">
@@ -466,40 +561,40 @@
     <section class="section" id="projects">
       <div class="container">
         <header class="section-head reveal">
-          <span class="section-index">04</span>
+          <span class="section-index">05</span>
           <h2>Notable Projects</h2>
         </header>
         <div class="project-grid">
-          <article class="project-card reveal">
+          <a class="project-card reveal" href="https://github.com/khaledhasanirfan" target="_blank" rel="noopener">
             <span class="project-role">Jul 2022 - Jun 2023</span>
             <h3 class="project-title">Light Canvas: Interactive Virtual Drawing System</h3>
             <p class="project-summary">An IoT-based portable device that turns any flat surface into a virtual drawing board by projecting a laser surface, aiding children's education without complex computing devices.</p>
             <span class="project-tech">Image Processing, ML, Flutter, Python, OpenCV, IoT</span>
-          </article>
-          <article class="project-card reveal">
+          </a>
+          <a class="project-card reveal" href="https://github.com/khaledhasanirfan" target="_blank" rel="noopener">
             <span class="project-role">Jan 2023 - Jun 2023</span>
             <h3 class="project-title">AutoML Tool for Airborne Disease Analysis</h3>
             <p class="project-summary">An AutoML tool that analyzes the correlation between air pollution and airborne diseases and predicts disease burden.</p>
             <span class="project-tech">Python, Arduino, Pressure Sensors</span>
-          </article>
-          <article class="project-card reveal">
+          </a>
+          <a class="project-card reveal" href="https://github.com/khaledhasanirfan" target="_blank" rel="noopener">
             <span class="project-role">Jul 2023 - Dec 2023</span>
             <h3 class="project-title">NLP-Based AI Job Recommendation System</h3>
             <p class="project-summary">A job recommendation system where candidates upload their CVs and job preferences to receive AI-driven recommendations.</p>
             <span class="project-tech">NLP, Machine Learning, Python</span>
-          </article>
-          <article class="project-card reveal">
+          </a>
+          <a class="project-card reveal" href="https://github.com/khaledhasanirfan" target="_blank" rel="noopener">
             <span class="project-role">Jul 2023 - Feb 2024</span>
             <h3 class="project-title">Web3 vs Web2 UX in Decentralized Social Media</h3>
             <p class="project-summary">A prototype to evaluate UX differences between Web3 and Web2 social media platforms using key UX parameters for improvement.</p>
             <span class="project-tech">HCI, SUS</span>
-          </article>
-          <article class="project-card reveal">
+          </a>
+          <a class="project-card reveal" href="https://github.com/khaledhasanirfan" target="_blank" rel="noopener">
             <span class="project-role">Jul 2022 - Dec 2022</span>
             <h3 class="project-title">Line Follower Delivery Bot</h3>
             <p class="project-summary">A prototype delivery bot with a chamber carrying up to 3kg that follows a predefined path using line-following technology.</p>
             <span class="project-tech">Arduino, IoT Sensors</span>
-          </article>
+          </a>
         </div>
       </div>
     </section>
@@ -507,7 +602,7 @@
     <section class="section" id="education">
       <div class="container">
         <header class="section-head reveal">
-          <span class="section-index">05</span>
+          <span class="section-index">06</span>
           <h2>Education</h2>
         </header>
         <ol class="edu-timeline">
@@ -520,7 +615,6 @@
             <p class="edu-loc">Dhaka, Bangladesh</p>
             <ul class="edu-points">
               <li>CGPA <b>3.83 out of 4.00</b> (highest 3.98, Spring 2022)</li>
-              <li>Ranked <b>4th out of 88</b> students in the department</li>
               <li>Thesis: <b>Adaptive User Interface in Mobile Banking: A Machine Learning Approach to Enhance UX.</b> Built an adaptive UI prototype using a custom ML pipeline driven by users' tapping behavior.</li>
             </ul>
           </li>
@@ -553,7 +647,7 @@
     <section class="section" id="teaching">
       <div class="container">
         <header class="section-head reveal">
-          <span class="section-index">06</span>
+          <span class="section-index">07</span>
           <h2>Teaching</h2>
         </header>
         <p class="teaching-lead reveal">Courses I have taught and supervised at MIST.</p>
@@ -600,11 +694,11 @@
     <section class="section" id="honors">
       <div class="container">
         <header class="section-head reveal">
-          <span class="section-index">07</span>
+          <span class="section-index">08</span>
           <h2>Honors and Awards</h2>
         </header>
         <ul class="honors-list">
-          <li class="reveal"><span class="honor-date">Dec 2025</span><span class="honor-text"><b>Top 2% Paper Award, ICCIT 2025 (IEEE)</b> for the paper on agricultural mobile app usability, among the top 2% of all accepted papers.</span></li>
+          <li class="linked reveal"><a class="honor-link" href="https://doi.org/10.1109/ICCIT68739.2025.11491675" target="_blank" rel="noopener" aria-label="Open the awarded paper"></a><span class="honor-date">Dec 2025</span><span class="honor-text"><b>Top 2% Paper Award, ICCIT 2025 (IEEE)</b> for the paper on agricultural mobile app usability, among the top 2% of all accepted papers.</span></li>
           <li class="reveal"><span class="honor-date">2020 - 2024</span><span class="honor-text"><b>Commandant's List of Honour, MIST.</b> CGPA 3.80 or above in 2020, 2022, and 2023.</span></li>
           <li class="reveal"><span class="honor-date">2020 - 2024</span><span class="honor-text"><b>Dean's List of Honour, MIST.</b> CGPA 3.70 or above in all four academic years.</span></li>
           <li class="reveal"><span class="honor-date">Jul 2025</span><span class="honor-text"><b>Project Demo selected for National Innovation Summit (BEAR Summit 2025).</b> Team Lead.</span></li>
@@ -620,7 +714,7 @@
     <section class="section" id="contact">
       <div class="container">
         <header class="section-head reveal">
-          <span class="section-index">08</span>
+          <span class="section-index">09</span>
           <h2>Contact</h2>
         </header>
         <div class="contact-layout">
@@ -677,7 +771,7 @@
     const rm=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
     // Constellation background
-    {const cvs=document.getElementById('bg-canvas');if(cvs&&!rm){const cx=cvs.getContext('2d');const IC='124,108,255',TC='52,214,196';let W,H,pts,N;function rs(){W=cvs.width=innerWidth;H=cvs.height=innerHeight;N=W<600?30:60}function ip(){pts=[];for(let i=0;i<N;i++)pts.push({x:Math.random()*W,y:Math.random()*H,vx:(Math.random()-.5)*.45,vy:(Math.random()-.5)*.45,r:Math.random()*1.3+.6,c:Math.random()>.35?IC:TC})}const MD=140,MD2=MD*MD;function dr(){cx.clearRect(0,0,W,H);for(const p of pts){p.x+=p.vx;p.y+=p.vy;if(p.x<0){p.x=0;p.vx=-p.vx}else if(p.x>W){p.x=W;p.vx=-p.vx}if(p.y<0){p.y=0;p.vy=-p.vy}else if(p.y>H){p.y=H;p.vy=-p.vy}}for(let i=0;i<pts.length-1;i++){for(let j=i+1;j<pts.length;j++){const dx=pts[i].x-pts[j].x,dy=pts[i].y-pts[j].y,d=dx*dx+dy*dy;if(d<MD2){cx.beginPath();cx.strokeStyle=`rgba(${pts[i].c},${(1-Math.sqrt(d)/MD)*.14})`;cx.lineWidth=.8;cx.moveTo(pts[i].x,pts[i].y);cx.lineTo(pts[j].x,pts[j].y);cx.stroke()}}}for(const p of pts){cx.beginPath();cx.fillStyle=`rgba(${p.c},.5)`;cx.arc(p.x,p.y,p.r,0,Math.PI*2);cx.fill()}requestAnimationFrame(dr)}window.addEventListener('resize',()=>{rs();ip()},{passive:true});rs();ip();dr()}}
+    {const cvs=document.getElementById('bg-canvas');if(cvs&&!rm){const cx=cvs.getContext('2d');const IC='124,108,255',TC='52,214,196';let W,H,pts,N,mx=-999,my=-999;function rs(){W=cvs.width=innerWidth;H=cvs.height=innerHeight;N=W<600?30:64}function ip(){pts=[];for(let i=0;i<N;i++)pts.push({x:Math.random()*W,y:Math.random()*H,vx:(Math.random()-.5)*.45,vy:(Math.random()-.5)*.45,r:Math.random()*1.3+.6,c:Math.random()>.35?IC:TC})}const MD=140,MD2=MD*MD,MR=170,MR2=MR*MR;function dr(){cx.clearRect(0,0,W,H);for(const p of pts){p.x+=p.vx;p.y+=p.vy;if(p.x<0){p.x=0;p.vx=-p.vx}else if(p.x>W){p.x=W;p.vx=-p.vx}if(p.y<0){p.y=0;p.vy=-p.vy}else if(p.y>H){p.y=H;p.vy=-p.vy}}for(let i=0;i<pts.length-1;i++){for(let j=i+1;j<pts.length;j++){const dx=pts[i].x-pts[j].x,dy=pts[i].y-pts[j].y,d=dx*dx+dy*dy;if(d<MD2){cx.beginPath();cx.strokeStyle=`rgba(${pts[i].c},${(1-Math.sqrt(d)/MD)*.14})`;cx.lineWidth=.8;cx.moveTo(pts[i].x,pts[i].y);cx.lineTo(pts[j].x,pts[j].y);cx.stroke()}}}if(mx>-900){for(const p of pts){const dx=p.x-mx,dy=p.y-my,d=dx*dx+dy*dy;if(d<MR2){const t=1-Math.sqrt(d)/MR;cx.beginPath();cx.strokeStyle=`rgba(${p.c},${t*.4})`;cx.lineWidth=1;cx.moveTo(p.x,p.y);cx.lineTo(mx,my);cx.stroke()}}}for(const p of pts){cx.beginPath();cx.fillStyle=`rgba(${p.c},.5)`;cx.arc(p.x,p.y,p.r,0,Math.PI*2);cx.fill()}requestAnimationFrame(dr)}window.addEventListener('resize',()=>{rs();ip()},{passive:true});window.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY},{passive:true});window.addEventListener('mouseout',()=>{mx=my=-999},{passive:true});rs();ip();dr()}}
 
     const nav=document.getElementById('nav');
     const toggle=document.getElementById('navToggle');
